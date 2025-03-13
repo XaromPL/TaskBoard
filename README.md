@@ -1,47 +1,9 @@
-# Task Manager📝
+# Task Board📝
 
-# Overview
+**TaskBoard** is a console application designed to help manage daily tasks. Its main goal is to provide simplicity and clarity for the user.
 
-**This is a Terminal Task Manager written in Python. It helps users to efficiently manage their tasks with features such as adding, editing, deleting, sorting, and filtering tasks. It also includes an AI Assistant to recommend the most urgent task to complete.**
+The core features of the application include the ability to add tasks, write descriptions, assign tasks to specific individuals, and set priorities. Based on this information, tasks can be sorted, and the most important task can be selected for completion. The application also uses colors to enhance the visual clarity of the program. Below is a preview of how the main menu looks:
 
-# Features
+![App viev](images/screen1.png)
 
-📌 Add, Edit, and Delete Tasks
-
-✅ Mark Tasks as Completed
-
-🔥 Identify Urgent and Overdue Tasks
-
-📊 View Statistics and Dashboard
-
-🧠 AI Task Recommendation
-
-📂 Export Tasks to Report
-
-🗂 Sort and Filter Tasks by Date, Priority, and Category
-
-🔄 Undo Last Deleted Task
-
-# File Structure
-
-📂 task-manager
-
-├── 📄 task_manager.py  # Main script
-
-├── 📄 tasks.json       # Stores tasks
-
-├── 📄 username.txt     # Stores the username
-
-├── 📄 README.md        # Project documentation
-
-├── 📄 requirements.txt # Dependencies
-
-# Technologies Used
-
-🐍 Python (Core language)
-
-🎨 Colorama (For colored terminal output)
-
-📅 Datetime & Calendar (For task scheduling)
-
-📂 JSON & OS (For task storage & file management)
+The program is written in Python and uses basic libraries. Tasks are stored in a tasks.json file, and the username is saved in username.txt. To install the application, all you need to do is install the dependencies from the requirements.txt file and run the program in Python.
