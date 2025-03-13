@@ -10,7 +10,6 @@ init(autoreset=True)
 TASKS_FILE = "tasks.json"
 USERNAME_FILE = "username.txt"
 
-# Get username from file or prompt the user if not set
 def get_username():
 
     if os.path.exists(USERNAME_FILE):
@@ -23,7 +22,6 @@ def get_username():
         f.write(username)
     return username
 
-# Main TaskManager 
 class TaskManager:
     def __init__(self, username):
         self.username = username
@@ -48,7 +46,6 @@ class TaskManager:
             print(Fore.GREEN + "No urgent tasks.")
         print("-" * 40)
 
-    # Display task statistics 
     def display_statistics(self):
         total = len(self.tasks)
         completed = sum(1 for t in self.tasks if t["completed"])
@@ -59,7 +56,6 @@ class TaskManager:
         print(Fore.YELLOW + stats)
         print("-" * 40)
 
-    # Display the main menu 
     def show_menu(self):
         print(Fore.CYAN + "======================================")
         print(Fore.CYAN + "         Terminal Task Manager        ")
@@ -82,7 +78,6 @@ class TaskManager:
         print(Fore.CYAN + "13. Quit")
         print(Fore.CYAN + "======================================")
 
-    # List tasks 
     def list_tasks(self, tasks=None):
         if tasks is None:
             tasks = self.tasks
@@ -150,7 +145,6 @@ class TaskManager:
             print("Task not added.")
         input("Press Enter to continue...")
 
-    # Edit an existing task
     def edit_task(self):
         print("----- Edit Task -----")
         self.list_tasks()
@@ -199,7 +193,6 @@ class TaskManager:
         print("Task updated.")
         input("Press Enter to continue...")
 
-    # Delete a task
     def delete_task(self):
         print("----- Delete Task -----")
         self.list_tasks()
@@ -220,7 +213,6 @@ class TaskManager:
             print("Deletion cancelled.")
         input("Press Enter to continue...")
 
-    # Mark a task as completed
     def mark_completed(self):
         print("----- Mark Task as Completed -----")
         self.list_tasks()
@@ -235,7 +227,6 @@ class TaskManager:
         print("Task marked as completed.")
         input("Press Enter to continue...")
 
-    # View details of a specific task
     def view_details(self):
         print("----- View Task Details -----")
         self.list_tasks()
@@ -258,7 +249,6 @@ class TaskManager:
         print("======================================")
         input("Press Enter to continue...")
 
-    # Assistant 
     def ai_assistant(self):
         print("----- AI Assistant Recommendation -----")
         pending_tasks = [t for t in self.tasks if not t["completed"]]
@@ -288,7 +278,6 @@ class TaskManager:
             print("No valid task found.")
         input("Press Enter to continue...")
 
-    # Sort tasks 
     def sort_tasks(self):
         print("----- Sort Tasks -----")
         print("1. Sort by Due Date")
@@ -305,7 +294,6 @@ class TaskManager:
         self.save_tasks()
         input("Press Enter to continue...")
 
-    # Filter tasks 
     def filter_tasks(self):
         print("----- Filter Tasks -----")
         print("1. Filter by Category")
@@ -337,7 +325,6 @@ class TaskManager:
                 print(f"{i+1}. {task['title']} - {task['date']} {'(Completed)' if task['completed'] else ''}")
         input("Press Enter to continue...")
 
-    # Display overall 
     def dashboard(self):
         print("----- Dashboard / Statistics -----")
         total = len(self.tasks)
@@ -351,7 +338,6 @@ class TaskManager:
         print(Fore.YELLOW + f"Overdue tasks: {overdue}")
         input("Press Enter to continue...")
 
-    # Export tasks 
     def export_report(self):
         print("----- Export Tasks to Report -----")
         report_file = "task_report.txt"
@@ -365,7 +351,6 @@ class TaskManager:
         print(f"Report exported to {report_file}.")
         input("Press Enter to continue...")
 
-    # Remove all completed tasks
     def clear_completed(self):
         print("----- Clear Completed Tasks -----")
         original_count = len(self.tasks)
@@ -375,7 +360,6 @@ class TaskManager:
         self.save_tasks()
         input("Press Enter to continue...")
 
-    # Undo the last deletion of a task
     def undo_deletion(self):
         print("----- Undo Last Deletion -----")
         if self.last_deleted is None:
@@ -388,7 +372,6 @@ class TaskManager:
             self.last_deleted = None
         input("Press Enter to continue...")
 
-    # Check for overdue tasks 
     def check_overdue_tasks(self):
         today_str = date.today().strftime("%Y-%m-%d")
         overdue_tasks = [t for t in self.tasks if not t["completed"] and t["date"] < today_str]
@@ -398,7 +381,6 @@ class TaskManager:
                 print(Fore.RED + f" - {task['title']} (Due: {task['date']})")
             input("Press Enter to continue...")
 
-    # Load tasks 
     def load_tasks(self):
         if os.path.exists(TASKS_FILE):
             try:
@@ -409,7 +391,6 @@ class TaskManager:
         else:
             self.tasks = []
 
-    # Save tasks 
     def save_tasks(self):
         with open(TASKS_FILE, "w") as f:
             json.dump(self.tasks, f, indent=4)
