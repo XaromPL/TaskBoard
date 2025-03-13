@@ -25,10 +25,15 @@
 # File Structure
 
 📂 task-manager
+
 ├── 📄 task_manager.py  # Main script
+
 ├── 📄 tasks.json       # Stores tasks
+
 ├── 📄 username.txt     # Stores the username
+
 ├── 📄 README.md        # Project documentation
+
 ├── 📄 requirements.txt # Dependencies
 
 # Technologies Used
