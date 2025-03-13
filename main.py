@@ -58,7 +58,7 @@ class TaskManager:
 
     def show_menu(self):
         print(Fore.CYAN + "======================================")
-        print(Fore.CYAN + "         Terminal Task Manager        ")
+        print(Fore.CYAN + "              Task Board        ")
         print(Fore.CYAN + f"              User: {self.username}              ")
         print(Fore.CYAN + "======================================")
         self.display_urgent_tasks()  
